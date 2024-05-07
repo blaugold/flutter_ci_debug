@@ -5,7 +5,7 @@ on:
 
 jobs:
   ci:
-    runs-on: macos-12
+    runs-on: macos-13
 
     steps:
       - uses: actions/checkout@v2
@@ -18,5 +18,5 @@ jobs:
 
       - name: Run Integration Tests
         run: |
-          flutter emulators --launch apple_ios_simulator
+          flutter -v emulators --launch apple_ios_simulator
           flutter -v test integration_test/main_test.dart -d iPhone
