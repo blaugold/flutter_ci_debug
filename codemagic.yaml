@@ -10,15 +10,16 @@ workflows:
 
     environment:
       flutter: stable
+      xcode: 15.3
 
     scripts:
       - name: Install dependencies
         script: flutter pub get
 
-      - name: Run Tests
+      - name: Run tests
         script: flutter test
 
-      - name: Run Integration Tests
+      - name: Run integration tests
         script: |
           flutter -v emulators --launch apple_ios_simulator
           flutter -v test integration_test/main_test.dart -d iPhone
