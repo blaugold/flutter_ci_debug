@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  ci:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run Integration Tests
+        run: |
+          flutter emulators --launch apple_ios_simulator
+          flutter -v test integration_test/main_test.dart -d iPhone
