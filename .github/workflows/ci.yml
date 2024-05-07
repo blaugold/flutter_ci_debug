@@ -16,6 +16,10 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Install CocoaPods
+        working-directory: ios
+        run: pod install
+
       - name: Run Integration Tests
         run: |
           flutter -v emulators --launch apple_ios_simulator
