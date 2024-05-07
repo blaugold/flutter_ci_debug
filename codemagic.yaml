@@ -7,7 +7,6 @@ workflows:
     triggering:
       events:
         - push
-        - pull_request
 
     environment:
       flutter: stable
@@ -15,8 +14,10 @@ workflows:
     scripts:
       - name: Install dependencies
         script: flutter pub get
+
       - name: Run Tests
         script: flutter test
+
       - name: Run Integration Tests
         script: |
           flutter -v emulators --launch apple_ios_simulator

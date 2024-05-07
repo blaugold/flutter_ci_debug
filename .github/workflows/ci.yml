@@ -5,7 +5,7 @@ on:
 
 jobs:
   ci:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -16,9 +16,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Install CocoaPods
-        working-directory: ios
-        run: pod install
+      - name: Run Tests
+        run: flutter test
 
       - name: Run Integration Tests
         run: |
