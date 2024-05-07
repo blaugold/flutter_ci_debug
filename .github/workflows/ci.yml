@@ -26,7 +26,11 @@ jobs:
       - name: Run tests
         run: flutter test
 
+      - name: /usr/bin/arch -arm64e xcrun simctl list devices booted
+        run: /usr/bin/arch -arm64e xcrun simctl list devices booted
+
+      - name: Launch iOS simulator
+        run: flutter -v emulators --launch apple_ios_simulator
+
       - name: Run integration tests
-        run: |
-          flutter -v emulators --launch apple_ios_simulator
-          flutter -v test integration_test/main_test.dart -d iPhone
+        run: flutter -v test integration_test/main_test.dart -d iPhone
